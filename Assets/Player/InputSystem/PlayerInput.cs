@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-	public class StarterAssetsInputs : MonoBehaviour
+	public class PlayerInput : MonoBehaviour
 	{
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool leftMouseButtonClick;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,28 +44,38 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnClickMouse(InputValue value)
+        {
+			LeftMouseClick(value.isPressed);
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+		private void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+		}
 
-		public void LookInput(Vector2 newLookDirection)
+		private void LookInput(Vector2 newLookDirection)
 		{
 			look = newLookDirection;
 		}
 
-		public void JumpInput(bool newJumpState)
+		private void JumpInput(bool newJumpState)
 		{
 			jump = newJumpState;
 		}
 
-		public void SprintInput(bool newSprintState)
+		private void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}
+
+		private void LeftMouseClick(bool newLeftMouseButtonState)
+        {
+			leftMouseButtonClick = newLeftMouseButtonState;
+        }
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
@@ -75,6 +86,6 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
+    }
 	
 }

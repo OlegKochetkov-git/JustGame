@@ -46,7 +46,7 @@ namespace StarterAssets
         
         static string GetFirstPersonPrefabPath()
         {
-            if (TryLocatePrefab(PlayerCapsulePrefabName, null, new[] { typeof(FirstPersonController), typeof(StarterAssetsInputs) }, out GameObject _, out string prefabPath))
+            if (TryLocatePrefab(PlayerCapsulePrefabName, null, new[] { typeof(FirstPersonController), typeof(PlayerInput) }, out GameObject _, out string prefabPath))
             {
                 var pathString = new StringBuilder();
                 var currentDirectory = new FileInfo(prefabPath).Directory;
