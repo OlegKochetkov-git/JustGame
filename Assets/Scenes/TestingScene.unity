@@ -541,36 +541,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
-      value: 998186ee-c8f2-42b8-b2ad-454647370127
-      objectReference: {fileID: 0}
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: c89fc6ee-f423-44bb-a7f7-8d24526792ef
-      objectReference: {fileID: 0}
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
-      value: Player/LeftMouseClick[/Mouse/leftButton]
-      objectReference: {fileID: 0}
-    - target: {fileID: 229857453935844234, guid: e6fb7518050008c4993f88e165e86a49,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: Player/RightMouseClick[/Mouse/rightButton]
-      objectReference: {fileID: 0}
     - target: {fileID: 6883082188292373742, guid: e6fb7518050008c4993f88e165e86a49,
         type: 3}
       propertyPath: m_RootOrder
@@ -709,16 +679,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1027769934287841876, guid: 62a7492574525864991b0e141db7ded3,
-        type: 3}
-      propertyPath: timeForMovingDoor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3669597638166795423, guid: 62a7492574525864991b0e141db7ded3,
-        type: 3}
-      propertyPath: timeForMovingDoor
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3880139423780193843, guid: 62a7492574525864991b0e141db7ded3,
         type: 3}
       propertyPath: m_RootOrder
@@ -773,11 +733,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4136744852551404844, guid: 62a7492574525864991b0e141db7ded3,
-        type: 3}
-      propertyPath: timeForMovingDoor
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4508902104266972297, guid: 62a7492574525864991b0e141db7ded3,
         type: 3}
