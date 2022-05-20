@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -13,6 +14,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool leftMouseButtonClick;
+		public bool rightMouseButtonClick;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -22,35 +24,40 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-		public void OnMove(InputValue value)
+		public void OnMove(InputAction.CallbackContext context)
 		{
-			MoveInput(value.Get<Vector2>());
+			MoveInput(context.ReadValue<Vector2>());
 		}
 
-		public void OnLook(InputValue value)
+		public void OnLook(InputAction.CallbackContext context)
 		{
 			if(cursorInputForLook)
 			{
-				LookInput(value.Get<Vector2>());
+				LookInput(context.ReadValue<Vector2>());
 			}
 		}
 
-		public void OnJump(InputValue value)
+		public void OnJump(InputAction.CallbackContext context)
 		{
-			JumpInput(value.isPressed);
+			JumpInput(context.performed);
 		}
 
-		public void OnSprint(InputValue value)
+		public void OnSprint(InputAction.CallbackContext context)
 		{
-			SprintInput(value.isPressed);
+			SprintInput(context.performed);
 		}
 
-		public void OnClickMouse(InputValue value)
+		public void OnLeftMouseClick(InputAction.CallbackContext context)
         {
-			LeftMouseClick(value.isPressed);
-        }
-#endif
+			LeftMouseClick(context.performed);
+			
+		}
 
+		public void OnRigthMouseClick(InputAction.CallbackContext context)
+		{ 
+			RightMouseClick(context.performed);
+		}
+#endif
 
 		private void MoveInput(Vector2 newMoveDirection)
 		{
@@ -76,7 +83,12 @@ namespace StarterAssets
         {
 			leftMouseButtonClick = newLeftMouseButtonState;
         }
-		
+
+		private void RightMouseClick(bool newrightMouseButtonClick)
+		{
+			rightMouseButtonClick = newrightMouseButtonClick;
+		}
+					
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
@@ -87,5 +99,4 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
     }
-	
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5180483498671163123}
   - component: {fileID: 5081955493555308710}
   - component: {fileID: 3277149718693642969}
-  - component: {fileID: 5292529949919524117}
+  - component: {fileID: 4136744852551404844}
   m_Layer: 0
   m_Name: Box2
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5948675, y: 0.29541153, z: 1.5824007}
   m_Center: {x: -7.765056e-16, y: 0.03918031, z: -0.008666277}
---- !u!114 &5292529949919524117
+--- !u!114 &4136744852551404844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,12 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3351183794869407145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e463f4f320cae40aaabc6111ff4e14, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf450379fa5ed74da81147b3cee1fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furniture: 1
-  angleOfRotarion: {x: 0, y: 0, z: 0}
+  angleOfRotation: {x: 0, y: 0, z: 0}
   movementLength: {x: 0, y: 0, z: 1}
+  timeForMovingDoor: 1
 --- !u!1 &4170294561489753020
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 1987766917669408264}
   - component: {fileID: 4955811303023691285}
   - component: {fileID: 7338293051911220308}
-  - component: {fileID: 6805751622245123159}
+  - component: {fileID: 3669597638166795423}
   m_Layer: 0
   m_Name: Box3
   m_TagString: Untagged
@@ -344,7 +344,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5948675, y: 0.29541153, z: 1.5899907}
   m_Center: {x: -8.7766166e-16, y: 0.03918031, z: -0.004871249}
---- !u!114 &6805751622245123159
+--- !u!114 &3669597638166795423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,12 +353,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5088827396753711165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e463f4f320cae40aaabc6111ff4e14, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf450379fa5ed74da81147b3cee1fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furniture: 1
-  angleOfRotarion: {x: 0, y: 0, z: 0}
+  angleOfRotation: {x: 0, y: 0, z: 0}
   movementLength: {x: 0, y: 0, z: 1}
+  timeForMovingDoor: 1
 --- !u!1 &5369923273033408968
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 2239333690807720536}
   - component: {fileID: 6479511750690145225}
   - component: {fileID: 7053098142701624036}
-  - component: {fileID: 5125973620534922220}
+  - component: {fileID: 1027769934287841876}
   m_Layer: 0
   m_Name: Box1
   m_TagString: Untagged
@@ -457,7 +457,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5948675, y: 0.29541153, z: 1.5924783}
   m_Center: {x: 2.5340515e-16, y: 0.03917949, z: -0.003627628}
---- !u!114 &5125973620534922220
+--- !u!114 &1027769934287841876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,9 +466,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5369923273033408968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e463f4f320cae40aaabc6111ff4e14, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf450379fa5ed74da81147b3cee1fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furniture: 1
-  angleOfRotarion: {x: 0, y: 0, z: 0}
+  angleOfRotation: {x: 0, y: 0, z: 0}
   movementLength: {x: 0, y: 0, z: 1}
+  timeForMovingDoor: 1
