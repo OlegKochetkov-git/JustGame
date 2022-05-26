@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e463f4f320cae40aaabc6111ff4e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  furniture: 1
   angleOfRotation: {x: 0, y: 90, z: 0}
+  movementLength: {x: 0, y: 0, z: 0}
   timeForMovingDoor: 1
 --- !u!1 &1809432277051863901
 GameObject:

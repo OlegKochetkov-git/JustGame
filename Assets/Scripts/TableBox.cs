@@ -1,20 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class DoorObject : OpenableObject
+public class TableBox : OpenableObject
 {
+    #region Interfaces
     public override void InteractWithObject()
     {
         if (isAnimated) return;
 
-        if (transformGO.localEulerAngles == atStartLocalAngle)
+        if (transformGO.localPosition == atStartLocalPosition)
             StartCoroutine(Open(true));
         else
             StartCoroutine(Open(false));
     }
+    #endregion
 
     protected override IEnumerator Open(bool isOpen)
     {
