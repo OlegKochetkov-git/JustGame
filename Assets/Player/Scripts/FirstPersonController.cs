@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using Assets.Player.InputSystem;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
 
-namespace StarterAssets
+namespace Assets.Player.Scripts
 {
 	[RequireComponent(typeof(CharacterController))]
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -69,7 +70,7 @@ namespace StarterAssets
 		private UnityEngine.InputSystem.PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
-		private PlayerInput _input;
+		private InputSystem.PlayerInput _input;
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
@@ -98,7 +99,7 @@ namespace StarterAssets
 		private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
-			_input = GetComponent<PlayerInput>();
+			_input = GetComponent<InputSystem.PlayerInput>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<UnityEngine.InputSystem.PlayerInput>();
 #else

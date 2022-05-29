@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractable
+namespace Assets.Scripts.Interfaces
 {
-    void InteractWithObject();
+    public interface IInteractable
+    {
+        void InteractWithObject();
+    }
 }
+

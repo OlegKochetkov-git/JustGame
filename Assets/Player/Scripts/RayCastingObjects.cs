@@ -1,43 +1,97 @@
-using StarterAssets;
+using Assets.Scripts.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RayCastingObjects : MonoBehaviour
+
+namespace Assets.Player.Scripts
 {
-    [SerializeField] float rayLength;
-
-    private Transform cameraTransform;
-    private Ray ray;
-    private RaycastHit hit;
-
-    private void Awake()
+    public class RayCastingObjects : MonoBehaviour
     {
-        cameraTransform = Camera.main.transform;
-    }
+        [SerializeField] Transform handsTransform;
+        [SerializeField] float rayLength;
 
-    private void Update()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        [SerializeField] float moveForce;
+
+        GameObject objectInHand;
+
+        private Transform cameraTransform;
+        private Ray ray;
+        private RaycastHit hit;
+
+        private void Awake()
         {
-            ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            if (Physics.Raycast(ray, out hit, rayLength))
+            cameraTransform = Camera.main.transform;
+        }
+
+        private void Update()
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (hit.collider.GetComponent(typeof(IInteractable)))
+                ray = new Ray(cameraTransform.position, cameraTransform.forward);
+                bool hitSomething = Physics.Raycast(ray, out hit, rayLength);
+                if (hitSomething)
                 {
-                   hit.collider.GetComponent<IInteractable>().InteractWithObject();
+                    GameObject hitObject = hit.collider.gameObject;
+
+                    ActionsWithInteractiveObject(hitObject);
+                    ActionWithPickUpObject(hitObject);
                 }
             }
-        }       
-    }
 
+            if (objectInHand != null)
+            {
+                MoveObject();
+            }
+        }
 
+        private void ActionWithPickUpObject(GameObject hitObject)
+        {
+            if (objectInHand == null)
+            {
+                if (hitObject.GetComponent(typeof(IPickupable)))
+                {
+                    objectInHand = hitObject;
+                    objectInHand.GetComponent<IPickupable>().PickUp(handsTransform);
+                }
+            }
+            else
+            {
+                DropObject();
+            }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        if (cameraTransform == null) return;
-        Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * rayLength);
+        }
+
+        private void ActionsWithInteractiveObject(GameObject hitObject)
+        {
+            if (!hitObject.GetComponent(typeof(IInteractable))) return;
+
+            hitObject.GetComponent<IInteractable>().InteractWithObject();
+            
+        }
+
+        void DropObject()
+        {
+            var rb = objectInHand.GetComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.drag = 1f;
+            rb.transform.parent = null;
+            objectInHand = null;
+        }
+
+        private void MoveObject()
+        {
+            objectInHand.transform.position = handsTransform.position;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if (cameraTransform == null) return;
+            Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * rayLength);
+        }
     }
 }
+
