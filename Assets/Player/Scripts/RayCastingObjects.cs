@@ -13,10 +13,7 @@ namespace Assets.Player.Scripts
         [SerializeField] Transform handsTransform;
         [SerializeField] float rayLength;
 
-        [SerializeField] float moveForce;
-
         GameObject objectInHand;
-
         private Transform cameraTransform;
         private Ray ray;
         private RaycastHit hit;
