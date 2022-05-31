@@ -4,22 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Door : OpenableObject
+namespace Assets.Scripts
 {
-    #region Interfaces
-    public override void InteractWithObject()
+    public class Door : FurnitureObject
     {
-        if (isAnimated) return;
+        #region Interfaces
+        public override void InteractWithObject()
+        {
+            if (isAnimated) return;
 
-        if (transformGO.localEulerAngles == atStartLocalAngle)
-            StartCoroutine(Open(true));
-        else
-            StartCoroutine(Open(false));
-    }
-    #endregion
+            if (transformGO.localEulerAngles == atStartLocalAngle)
+                StartCoroutine(Open(true));
+            else
+                StartCoroutine(Open(false));
+        }
+        #endregion
 
-    protected override IEnumerator Open(bool isOpen)
-    {
-        return base.Open(isOpen);
+        protected override IEnumerator Open(bool isOpen)
+        {
+            return base.Open(isOpen);
+        }
     }
 }

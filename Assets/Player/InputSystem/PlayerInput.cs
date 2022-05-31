@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 #endif
 
-namespace StarterAssets
+namespace Assets.Player.InputSystem
 {
 	public class PlayerInput : MonoBehaviour
 	{

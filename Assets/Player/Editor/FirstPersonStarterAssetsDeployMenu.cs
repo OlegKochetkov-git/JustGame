@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using Assets.Player.InputSystem;
+using Assets.Player.Scripts;
+using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEditor;

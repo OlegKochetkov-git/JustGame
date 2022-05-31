@@ -1,43 +1,54 @@
-using StarterAssets;
+using Assets.Scripts.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RayCastingObjects : MonoBehaviour
+
+namespace Assets.Player.Scripts
 {
-    [SerializeField] float rayLength;
-
-    private Transform cameraTransform;
-    private Ray ray;
-    private RaycastHit hit;
-
-    private void Awake()
+    public class RayCastingObjects : MonoBehaviour
     {
-        cameraTransform = Camera.main.transform;
-    }
+        [SerializeField] float rayLenghtForDebug;
 
-    private void Update()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        private Transform cameraTransform;
+        private Ray ray;
+        private RaycastHit hit;
+
+        private void Awake()
+        {
+            cameraTransform = Camera.main.transform;
+        }
+
+        /// <summary>
+        /// Returns the object that the ray collided with, or null.
+        /// </summary>
+        /// <param name="rayLength"></param>
+        /// <returns></returns>
+        public GameObject ShotRay(float rayLength)
         {
             ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            if (Physics.Raycast(ray, out hit, rayLength))
+            bool hitSomething = Physics.Raycast(ray, out hit, rayLength);
+            if (hitSomething)
             {
-                if (hit.collider.GetComponent(typeof(IInteractable)))
-                {
-                   hit.collider.GetComponent<IInteractable>().InteractWithObject();
-                }
+                GameObject hitableObject = hit.collider.gameObject;
+                return hitableObject;
             }
-        }       
-    }
+            else
+            {
+                Debug.LogWarning($"Ray hit nothing");
+                return null;
+            }
+        }
 
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        if (cameraTransform == null) return;
-        Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * rayLength);
+       
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if (cameraTransform == null) return;
+            Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * rayLenghtForDebug);
+        }
     }
 }
+
