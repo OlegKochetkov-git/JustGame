@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PickUpObject : MonoBehaviour, IPickupable
+    public class PickupableObject : MonoBehaviour, IPickupable
     {
         private Rigidbody rb;
 

@@ -1,9 +1,9 @@
 ﻿using Assets.Player.Scripts;
 using Assets.Scripts.Interfaces;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 namespace Assets.Scripts
 {
@@ -22,41 +22,45 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                if (rayCastingObjects.ShotRay(rayLength))//, out objectInHand))
-                {
-                    ActionWithPickUpObject(rayCastingObjects.ShotRay(rayLength));
-                }
-
-            }
-
-            if (objectInHand != null)
-            {
-                MoveObject();
-            }
+            InputHandleForLaunchRay();
+            MoveObject();
         }
 
-        private void ActionWithPickUpObject(GameObject hitObject)
+        private void InputHandleForLaunchRay()
+        {
+            if (!Keyboard.current.eKey.wasPressedThisFrame) return;
+            
+            GameObject hitableObject = rayCastingObjects.ShotRay(rayLength);
+            if (hitableObject == null) return;
+
+            ActionWithHittableObject(hitableObject);
+        }
+
+        private void ActionWithHittableObject(GameObject hitableObject)
         {
             if (objectInHand == null)
             {
-                if (hitObject.GetComponent(typeof(IPickupable)))
+                bool isAvailableForPickUp = hitableObject.GetComponent(typeof(IPickupable));
+                if (isAvailableForPickUp)
                 {
-                    objectInHand = hitObject;
-                    objectInHand.GetComponent<IPickupable>().PickUp(handsTransform);
+                    objectInHand = hitableObject;
+                    IPickupable objectForPickUp = objectInHand.GetComponent<IPickupable>();
+                    objectForPickUp.PickUp(handsTransform);
                 }
             }
             else
             {
-                DropObject();
+                if (hitableObject.GetComponent(typeof(IPickupable)))
+                {
+                    DropObject();
+                }
             }
 
         }
 
         void DropObject()
         {
-            var rb = objectInHand.GetComponent<Rigidbody>();
+            Rigidbody rb = objectInHand.GetComponent<Rigidbody>();
             rb.useGravity = true;
             rb.drag = 1f;
             rb.transform.parent = null;
@@ -65,6 +69,7 @@ namespace Assets.Scripts
 
         private void MoveObject()
         {
+            if (objectInHand == null) return;
             objectInHand.transform.position = handsTransform.position;
         }
     }

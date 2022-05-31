@@ -851,6 +851,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 192335641, guid: e6fb7518050008c4993f88e165e86a49, type: 3}
+      propertyPath: rayLength
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969599786526411745, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: rayLenghtForDebug
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6419457437084842813, guid: e6fb7518050008c4993f88e165e86a49,
         type: 3}
       propertyPath: rayLength

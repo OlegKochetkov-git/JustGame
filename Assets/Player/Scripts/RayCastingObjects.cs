@@ -10,7 +10,8 @@ namespace Assets.Player.Scripts
 {
     public class RayCastingObjects : MonoBehaviour
     {
-    
+        [SerializeField] float rayLenghtForDebug;
+
         private Transform cameraTransform;
         private Ray ray;
         private RaycastHit hit;
@@ -20,58 +21,33 @@ namespace Assets.Player.Scripts
             cameraTransform = Camera.main.transform;
         }
 
-
-        public GameObject ShotRay(float rayLength)//, out GameObject hitable)
+        /// <summary>
+        /// Returns the object that the ray collided with, or null.
+        /// </summary>
+        /// <param name="rayLength"></param>
+        /// <returns></returns>
+        public GameObject ShotRay(float rayLength)
         {
             ray = new Ray(cameraTransform.position, cameraTransform.forward);
             bool hitSomething = Physics.Raycast(ray, out hit, rayLength);
             if (hitSomething)
             {
-                //hitable = hit.collider.gameObject;
-                return hit.collider.gameObject;
+                GameObject hitableObject = hit.collider.gameObject;
+                return hitableObject;
             }
             else
             {
-                //hitable = null;
+                Debug.LogWarning($"Ray hit nothing");
                 return null;
             }
         }
 
-        private void Update()
-        {
-            //if (Mouse.current.leftButton.wasPressedThisFrame)
-            //{
-            //    ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            //    bool hitSomething = Physics.Raycast(ray, out hit, rayLength);
-            //    if (hitSomething)
-            //    {
-            //        GameObject hitObject = hit.collider.gameObject;
-
-            //        ActionsWithInteractiveObject(hitObject);
-            //        ActionWithPickUpObject(hitObject);
-            //    }
-            //}
-
-            
-        }
-
-        
-
-        private void ActionsWithInteractiveObject(GameObject hitObject)
-        {
-            if (!hitObject.GetComponent(typeof(IInteractable))) return;
-
-            hitObject.GetComponent<IInteractable>().InteractWithObject();
-            
-        }
-
-        
-
+       
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             if (cameraTransform == null) return;
-            Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * 20f);
+            Gizmos.DrawRay(cameraTransform.transform.position, cameraTransform.forward * rayLenghtForDebug);
         }
     }
 }
