@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 611168547982410044}
   - component: {fileID: 229857453935844236}
   - component: {fileID: 229857453935844225}
-  - component: {fileID: 1991304547306768056}
   - component: {fileID: 8057205241691091318}
   - component: {fileID: 4584313737531656186}
   - component: {fileID: 229857453935844234}
+  - component: {fileID: 192335641}
+  - component: {fileID: 6419457437084842813}
+  - component: {fileID: 5969599786526411745}
   m_Layer: 7
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -86,21 +88,6 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 5604313120708731613}
   TopClamp: 89
   BottomClamp: -89
---- !u!114 &1991304547306768056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229857453935844230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622eec4db2387f04e9e2fd55dace00e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handsTransform: {fileID: 6919513362990088435}
-  rayLength: 15
-  moveForce: 0
 --- !u!114 &8057205241691091318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,9 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   canPush: 0
-  strength: 1.1
+  strength: 2.36
 --- !u!114 &4584313737531656186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +253,46 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &192335641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229857453935844230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffd472cf22939c43b1b04df6bd57c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLength: 0
+--- !u!114 &6419457437084842813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229857453935844230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5604d6f6eccc4d458f0598d2e3f78c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handsTransform: {fileID: 6919513362990088435}
+  rayCastingObjects: {fileID: 5969599786526411745}
+--- !u!114 &5969599786526411745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229857453935844230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622eec4db2387f04e9e2fd55dace00e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLength: 5
 --- !u!1 &2504541578837002321
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +355,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7793765, y: 1}
+    m_SensorSize: {x: 1.7775551, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
