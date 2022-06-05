@@ -8,28 +8,30 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Player.Scripts
 {
-    public class RayCastingObjects : MonoBehaviour
+    public abstract class RayCastingObjects : MonoBehaviour
     {
-        [SerializeField] float rayLenghtForDebug;
+        [SerializeField] private float rayLenghtForDebug;
 
         private Transform cameraTransform;
         private Ray ray;
         private RaycastHit hit;
 
-        private void Awake()
+        protected void Awake()
         {
             cameraTransform = Camera.main.transform;
         }
 
-        /// <summary>
-        /// Returns the object that the ray collided with, or null.
-        /// </summary>
+        protected abstract void InputHandleForLaunchRay();
+
         /// <param name="rayLength"></param>
-        /// <returns></returns>
-        public GameObject ShotRay(float rayLength)
+        /// <param name="currentLayerMask">The mask we want to face</param>
+        /// <returns>
+        /// Object that the ray collided with, or null.
+        /// </returns>
+        protected GameObject ShotRay(float rayLength, int currentLayerMask)
         {
             ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            bool hitSomething = Physics.Raycast(ray, out hit, rayLength);
+            bool hitSomething = Physics.Raycast(ray, out hit, rayLength, currentLayerMask);
             if (hitSomething)
             {
                 GameObject hitableObject = hit.collider.gameObject;
@@ -41,7 +43,6 @@ namespace Assets.Player.Scripts
                 return null;
             }
         }
-
        
         private void OnDrawGizmos()
         {

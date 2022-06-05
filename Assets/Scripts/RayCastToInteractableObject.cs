@@ -7,27 +7,21 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
-    public class RayCastToInteractableObject : MonoBehaviour
+    public class RayCastToInteractableObject : RayCastingObjects
     {
-        [SerializeField] float rayLength;
-
-        private RayCastingObjects rayCastingObjects;
-
-        private void Awake()
-        {
-            rayCastingObjects = GetComponent<RayCastingObjects>();
-        }
+        [SerializeField] private float rayLength;
+        [SerializeField] private LayerMask layerMask;
 
         private void Update()
         {
             InputHandleForLaunchRay();
         }
 
-        private void InputHandleForLaunchRay()
+        protected override void InputHandleForLaunchRay()
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame) return;
 
-            GameObject hitableObject = rayCastingObjects.ShotRay(rayLength);
+            GameObject hitableObject = ShotRay(rayLength, layerMask.value);
             if (hitableObject == null) return;
 
             ActionWithHittableObject(hitableObject);

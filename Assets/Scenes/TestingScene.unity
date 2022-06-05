@@ -141,6 +141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickable Object
       objectReference: {fileID: 0}
+    - target: {fileID: 6532747016631336674, guid: 9d04e963dd17cf548a5882e4c524b96c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6532747016631336678, guid: 9d04e963dd17cf548a5882e4c524b96c,
         type: 3}
       propertyPath: m_RootOrder
@@ -519,6 +524,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 229857453935844225, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 394399444242190220, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 394399444242190220, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: rayLenghtForDebug
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 394399444242190221, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394399444242190221, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: rayLenghtForDebug
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 394399444242190221, guid: e6fb7518050008c4993f88e165e86a49,
+        type: 3}
+      propertyPath: layerMaskForInteractableObject
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6883082188292373742, guid: e6fb7518050008c4993f88e165e86a49,
         type: 3}
       propertyPath: m_RootOrder
@@ -588,6 +623,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1844628246}
     m_Modifications:
+    - target: {fileID: 420379714621971681, guid: 3404901d61d5360489904668f2f587f1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1321724839756376551, guid: 3404901d61d5360489904668f2f587f1,
         type: 3}
       propertyPath: m_RootOrder
@@ -767,6 +807,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1123758121}
+    - target: {fileID: 1507650781223025449, guid: c1e8e87d8701014409ee7470a519f8ca,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1507650781223025450, guid: c1e8e87d8701014409ee7470a519f8ca,
         type: 3}
       propertyPath: m_Name
@@ -781,6 +826,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1844628246}
     m_Modifications:
+    - target: {fileID: 3351183794869407145, guid: 62a7492574525864991b0e141db7ded3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3880139423780193843, guid: 62a7492574525864991b0e141db7ded3,
         type: 3}
       propertyPath: m_RootOrder
@@ -840,6 +890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: T_BedsideTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088827396753711165, guid: 62a7492574525864991b0e141db7ded3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369923273033408968, guid: 62a7492574525864991b0e141db7ded3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a7492574525864991b0e141db7ded3, type: 3}

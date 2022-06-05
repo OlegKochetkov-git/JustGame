@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 8057205241691091318}
   - component: {fileID: 4584313737531656186}
   - component: {fileID: 229857453935844234}
-  - component: {fileID: 1991304547306768056}
   - component: {fileID: 394399444242190221}
   - component: {fileID: 394399444242190220}
   m_Layer: 7
@@ -284,19 +283,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1991304547306768056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229857453935844230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622eec4db2387f04e9e2fd55dace00e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayLenghtForDebug: 15
 --- !u!114 &394399444242190221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffd472cf22939c43b1b04df6bd57c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayLenghtForDebug: 0
   rayLength: 15
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &394399444242190220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,8 +312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5604d6f6eccc4d458f0598d2e3f78c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayLenghtForDebug: 0
   handsTransform: {fileID: 1019389952}
   rayLength: 15
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2504541578837002321
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +380,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775551, y: 1}
+    m_SensorSize: {x: 1.7783505, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

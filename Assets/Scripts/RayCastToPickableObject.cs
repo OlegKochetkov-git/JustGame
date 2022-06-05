@@ -7,18 +7,13 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
-    public class RayCastToPickableObject : MonoBehaviour
+    public class RayCastToPickableObject : RayCastingObjects
     {
         [SerializeField] private Transform handsTransform;
         [SerializeField] private float rayLength;
+        [SerializeField] private LayerMask layerMask;
 
-        private RayCastingObjects rayCastingObjects;
         private GameObject objectInHand;
-
-        private void Awake()
-        {
-            rayCastingObjects = GetComponent<RayCastingObjects>();
-        }
 
         private void Update()
         {
@@ -26,15 +21,16 @@ namespace Assets.Scripts
             MoveObject();
         }
 
-        private void InputHandleForLaunchRay()
+        protected override void InputHandleForLaunchRay()
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame) return;
-            
-            GameObject hitableObject = rayCastingObjects.ShotRay(rayLength);
+
+            GameObject hitableObject = ShotRay(rayLength, layerMask.value);
             if (hitableObject == null) return;
 
             ActionWithHittableObject(hitableObject);
         }
+
 
         private void ActionWithHittableObject(GameObject hitableObject)
         {
@@ -72,6 +68,8 @@ namespace Assets.Scripts
             if (objectInHand == null) return;
             objectInHand.transform.position = handsTransform.position;
         }
+
+       
     }
 
 
