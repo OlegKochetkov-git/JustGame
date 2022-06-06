@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
-    public class RayCastToInteractableObject : RayCastingObjects
+    public class RayCastToInteractableObject : ARayCastingObjects
     {
         [SerializeField] private float rayLength;
 

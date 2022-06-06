@@ -15,7 +15,7 @@ namespace Assets.Scripts
 
 
     [RequireComponent(typeof(Collider))]
-    public abstract class FurnitureObject : MonoBehaviour, IInteractable
+    public abstract class AFurnitureObject : MonoBehaviour, IInteractable
     {
         public Furniture furniture;
 

@@ -7,7 +7,8 @@ using UnityEngine;
 namespace Assets.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class PickupableObject : MonoBehaviour, IPickupable
+    [RequireComponent(typeof(Collider))]
+    public abstract class APickupableObject : MonoBehaviour, IPickupable
     {
         protected Transform transformGO;
         protected Rigidbody rb;
@@ -28,6 +29,16 @@ namespace Assets.Scripts
             rb.drag = 10f;
             rb.freezeRotation = true;
             transformGO.parent = holdParent;  
+        }
+
+        public virtual void Drop(Vector3 positionForPutObject)
+        {
+            rb.useGravity = true;
+            rb.drag = 1f;
+            rb.freezeRotation = false;
+            transformGO.parent = null;
+            colliderGO.enabled = true;
+            transformGO.position = positionForPutObject;
         }
         #endregion
     }

@@ -8,14 +8,14 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Player.Scripts
 {
-    public abstract class RayCastingObjects : MonoBehaviour
+    public abstract class ARayCastingObjects : MonoBehaviour
     {
         private float rayLenghtForDebug = 15f;
 
-        private Transform cameraTransform;
-        private Ray ray;
-        private RaycastHit hit;
-        private int ingnoreLayerMask;
+        protected Transform cameraTransform;
+        protected Ray ray;
+        protected RaycastHit hit;
+        protected int ingnoreLayerMask; // don't forget about ~
 
         protected void Awake()
         {
@@ -26,6 +26,7 @@ namespace Assets.Player.Scripts
 
         protected abstract void InputHandleForLaunchRay();
 
+        /// <summary>Ray ignoring player layer</summary>
         /// <param name="rayLength"></param>
         /// <returns>
         /// Object that the ray collided with, or null.

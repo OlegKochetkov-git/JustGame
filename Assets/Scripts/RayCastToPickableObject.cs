@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
-    public class RayCastToPickableObject : RayCastingObjects
+    public class RayCastToPickableObject : ARayCastingObjects
     {
         [SerializeField] private Transform handsTransform;
         [SerializeField] private float rayLength;
@@ -34,47 +34,31 @@ namespace Assets.Scripts
         private void ActionWithHittableObject(GameObject hitableObject)
         {
             if (objectInHand == null)
-            {
-                bool isAvailableForPickUp = hitableObject.GetComponent(typeof(IPickupable));
-                if (isAvailableForPickUp)
-                {
-                    objectInHand = hitableObject;
-                    IPickupable objectForPickUp = objectInHand.GetComponent<IPickupable>();
-                    objectForPickUp.PickUp(handsTransform);
-                }
-            }
+                TryPickupObjectInHand(hitableObject);          
             else
-            {
-                
-                Debug.Log("DROP");
-                DropObject();
-
-            }
-
+                TryDropObject(hitableObject);
         }
 
-        void DropObject()
+        private void TryPickupObjectInHand(GameObject hitableObject)
         {
-            Rigidbody rb = objectInHand.GetComponent<Rigidbody>();
-            //Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-            //RaycastHit hit;
-            //bool hitSomething = Physics.Raycast(ray, out hit, 15f);
-            rb.useGravity = true;
-            rb.drag = 1f;
-            rb.freezeRotation = false;
-            rb.transform.parent = null;
-            rb.gameObject.GetComponent<Collider>().enabled = true;
-            objectInHand = null;
-      
-            //if (hitSomething)
-            //{
-            //    Debug.Log("HIT");
-            //    Vector3 pos = hit.point;
-            //    rb.gameObject.transform.position = pos + Vector3.up;
-            //    rb.gameObject.GetComponent<Collider>().enabled = true;
+            bool isAvailableForPickUp = hitableObject.GetComponent(typeof(IPickupable));
+            if (!isAvailableForPickUp) return;
 
-            //}
-            
+            objectInHand = hitableObject;
+            IPickupable objectForPickUp = objectInHand.GetComponent<IPickupable>();
+            objectForPickUp.PickUp(handsTransform);
+        }
+
+        private void TryDropObject(GameObject hitableObject)
+        {
+            //bool isAvailableForDrop = hitableObject.GetComponent(typeof(IPickupable));
+            //if (!isAvailableForDrop) return;
+
+            if (!hitableObject.CompareTag("Put")) return; // better use interface
+
+            IPickupable objectForDrop = objectInHand.GetComponent<IPickupable>();
+            objectForDrop.Drop(hit.point);
+            objectInHand = null;
         }
 
         private void MoveObject()
@@ -82,9 +66,5 @@ namespace Assets.Scripts
             if (objectInHand == null) return;
             objectInHand.transform.position = handsTransform.position;
         }
-
-       
     }
-
-
 }

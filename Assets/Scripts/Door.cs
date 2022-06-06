@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
-    public class Door : FurnitureObject
+    public class Door : AFurnitureObject
     {
         #region Interfaces
         public override void InteractWithObject()

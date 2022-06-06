@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class TableBox : FurnitureObject
+    public class TableBox : AFurnitureObject
     {
         #region Interfaces
         public override void InteractWithObject()
