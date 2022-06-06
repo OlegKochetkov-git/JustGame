@@ -15,23 +15,25 @@ namespace Assets.Player.Scripts
         private Transform cameraTransform;
         private Ray ray;
         private RaycastHit hit;
+        private int ingnoreLayerMask;
 
         protected void Awake()
         {
             cameraTransform = Camera.main.transform;
+
+            ingnoreLayerMask = 1 << LayerMask.NameToLayer("Player");
         }
 
         protected abstract void InputHandleForLaunchRay();
 
         /// <param name="rayLength"></param>
-        /// <param name="currentLayerMask">The mask we want to face</param>
         /// <returns>
         /// Object that the ray collided with, or null.
         /// </returns>
-        protected GameObject ShotRay(float rayLength, int currentLayerMask)
+        protected GameObject ShotRay(float rayLength)
         {
             ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            bool hitSomething = Physics.Raycast(ray, out hit, rayLength, currentLayerMask);
+            bool hitSomething = Physics.Raycast(ray, out hit, rayLength, ~ingnoreLayerMask);
             if (hitSomething)
             {
                 GameObject hitableObject = hit.collider.gameObject;

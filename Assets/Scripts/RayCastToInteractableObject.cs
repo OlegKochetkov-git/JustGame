@@ -10,7 +10,6 @@ namespace Assets.Scripts
     public class RayCastToInteractableObject : RayCastingObjects
     {
         [SerializeField] private float rayLength;
-        [SerializeField] private LayerMask layerMask;
 
         private void Update()
         {
@@ -21,7 +20,7 @@ namespace Assets.Scripts
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame) return;
 
-            GameObject hitableObject = ShotRay(rayLength, layerMask.value);
+            GameObject hitableObject = ShotRay(rayLength);
             if (hitableObject == null) return;
 
             ActionWithHittableObject(hitableObject);

@@ -11,7 +11,6 @@ namespace Assets.Scripts
     {
         [SerializeField] private Transform handsTransform;
         [SerializeField] private float rayLength;
-        [SerializeField] private LayerMask layerMask;
 
         private GameObject objectInHand;
 
@@ -25,7 +24,7 @@ namespace Assets.Scripts
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame) return;
 
-            GameObject hitableObject = ShotRay(rayLength, layerMask.value);
+            GameObject hitableObject = ShotRay(rayLength);
             if (hitableObject == null) return;
 
             ActionWithHittableObject(hitableObject);
@@ -46,34 +45,35 @@ namespace Assets.Scripts
             }
             else
             {
-                if (hitableObject.layer == 10)
-                {
-                    DropObject(hitableObject.layer);
-                }
+                
+                Debug.Log("DROP");
+                DropObject();
+
             }
 
         }
 
-        void DropObject(int a)
+        void DropObject()
         {
             Rigidbody rb = objectInHand.GetComponent<Rigidbody>();
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-            RaycastHit hit;
-            bool hitSomething = Physics.Raycast(ray, out hit, 15f, 1024);
+            //Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            //RaycastHit hit;
+            //bool hitSomething = Physics.Raycast(ray, out hit, 15f);
             rb.useGravity = true;
             rb.drag = 1f;
             rb.freezeRotation = false;
             rb.transform.parent = null;
+            rb.gameObject.GetComponent<Collider>().enabled = true;
             objectInHand = null;
       
-            if (hitSomething)
-            {
-                Debug.Log("HIT");
-                Vector3 pos = hit.point;
-                rb.gameObject.transform.position = pos + Vector3.up;
-                rb.gameObject.GetComponent<Collider>().enabled = true;
+            //if (hitSomething)
+            //{
+            //    Debug.Log("HIT");
+            //    Vector3 pos = hit.point;
+            //    rb.gameObject.transform.position = pos + Vector3.up;
+            //    rb.gameObject.GetComponent<Collider>().enabled = true;
 
-            }
+            //}
             
         }
 

@@ -7,13 +7,13 @@ using UnityEngine;
 namespace Assets.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PickupableObject : MonoBehaviour, IPickupable
+    public abstract class PickupableObject : MonoBehaviour, IPickupable
     {
-        private Transform transformGO;
-        private Rigidbody rb;
-        private Collider colliderGO;
+        protected Transform transformGO;
+        protected Rigidbody rb;
+        protected Collider colliderGO;
 
-        private void Awake()
+        protected void Awake()
         {
             transformGO = GetComponent<Transform>();
             rb = GetComponent<Rigidbody>();
@@ -21,7 +21,7 @@ namespace Assets.Scripts
         }
 
         #region Interfaces
-        public void PickUp(Transform holdParent)
+        public virtual void PickUp(Transform holdParent)
         {
             colliderGO.enabled = false; 
             rb.useGravity = false;

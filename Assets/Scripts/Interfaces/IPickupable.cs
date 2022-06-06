@@ -9,6 +9,6 @@ namespace Assets.Scripts.Interfaces
         /// 
         /// </summary>
         /// <param name="holdParent">Place where to move the object</param>
-        void PickUp(Transform holdParent);  
+        void PickUp(Transform holdParent); 
     }
 }
