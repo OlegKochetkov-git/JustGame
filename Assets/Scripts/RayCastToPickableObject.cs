@@ -46,21 +46,35 @@ namespace Assets.Scripts
             }
             else
             {
-                if (hitableObject.GetComponent(typeof(IPickupable)))
+                if (hitableObject.layer == 10)
                 {
-                    DropObject();
+                    DropObject(hitableObject.layer);
                 }
             }
 
         }
 
-        void DropObject()
+        void DropObject(int a)
         {
             Rigidbody rb = objectInHand.GetComponent<Rigidbody>();
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+            bool hitSomething = Physics.Raycast(ray, out hit, 15f, 1024);
             rb.useGravity = true;
             rb.drag = 1f;
+            rb.freezeRotation = false;
             rb.transform.parent = null;
             objectInHand = null;
+      
+            if (hitSomething)
+            {
+                Debug.Log("HIT");
+                Vector3 pos = hit.point;
+                rb.gameObject.transform.position = pos + Vector3.up;
+                rb.gameObject.GetComponent<Collider>().enabled = true;
+
+            }
+            
         }
 
         private void MoveObject()

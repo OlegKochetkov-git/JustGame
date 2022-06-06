@@ -10,7 +10,7 @@ namespace Assets.Player.Scripts
 {
     public abstract class RayCastingObjects : MonoBehaviour
     {
-        [SerializeField] private float rayLenghtForDebug;
+        private float rayLenghtForDebug = 15f;
 
         private Transform cameraTransform;
         private Ray ray;
@@ -39,7 +39,7 @@ namespace Assets.Player.Scripts
             }
             else
             {
-                Debug.LogWarning($"Ray hit nothing");
+                //Debug.LogWarning($"Ray hit nothing");
                 return null;
             }
         }
