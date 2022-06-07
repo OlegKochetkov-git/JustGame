@@ -7,6 +7,10 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
+
+    /// <summary>
+    /// Class with which we can interact with objects that can be picked up
+    /// </summary>
     public class RayCastToPickableObject : ARayCastingObjects
     {
         [SerializeField] private Transform handsTransform;

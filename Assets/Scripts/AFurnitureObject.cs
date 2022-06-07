@@ -13,7 +13,9 @@ namespace Assets.Scripts
         TableBox
     }
 
-
+    /// <summary>
+    /// Class responsible for pieces of furniture that can spin, open
+    /// </summary>
     [RequireComponent(typeof(Collider))]
     public abstract class AFurnitureObject : MonoBehaviour, IInteractable
     {

@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
 {
+    /// <summary>
+    /// Class with which we can interact with interactive things (boxes, doors)
+    /// </summary>
     public class RayCastToInteractableObject : ARayCastingObjects
     {
         [SerializeField] private float rayLength;

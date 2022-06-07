@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
+    /// <summary>
+    /// Class responsible for the item that can be picked up
+    /// </summary>
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Collider))]
     public abstract class APickupableObject : MonoBehaviour, IPickupable

@@ -8,6 +8,9 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Player.Scripts
 {
+    /// <summary>
+    /// The class responsible for launching the ray
+    /// </summary>
     public abstract class ARayCastingObjects : MonoBehaviour
     {
         private float rayLenghtForDebug = 15f;
