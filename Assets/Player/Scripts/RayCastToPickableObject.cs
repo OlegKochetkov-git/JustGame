@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Assets.Scripts
+namespace Assets.Player.Scripts
 {
 
     /// <summary>

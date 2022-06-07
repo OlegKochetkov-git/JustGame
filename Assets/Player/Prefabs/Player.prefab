@@ -295,10 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffd472cf22939c43b1b04df6bd57c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 15
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
+  rayLength: 2
 --- !u!114 &394399444242190220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,10 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handsTransform: {fileID: 1019389952}
-  rayLength: 15
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1024
+  rayLength: 2
 --- !u!1 &2504541578837002321
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +372,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.7774608, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
