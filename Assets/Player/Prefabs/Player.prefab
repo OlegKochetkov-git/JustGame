@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 229857453935844234}
   - component: {fileID: 394399444242190221}
   - component: {fileID: 394399444242190220}
+  - component: {fileID: 316763529285414773}
   m_Layer: 7
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -310,6 +311,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handsTransform: {fileID: 1019389952}
   rayLength: 2
+--- !u!114 &316763529285414773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229857453935844230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7393c45f64c6a4581aaae605494090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDialogue: {fileID: 11400000, guid: 4cc93b6832a63424a8b701b6913b74ff, type: 2}
 --- !u!1 &2504541578837002321
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +386,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774608, y: 1}
+    m_SensorSize: {x: 1.7779579, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
